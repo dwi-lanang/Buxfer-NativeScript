@@ -15,7 +15,6 @@ mainViewModel.set("password", "");
 mainViewModel.set("isLoading", false);
 mainViewModel.set("rememberMe", false);
 
-
 //define the methods
 mainViewModel.loginButtonClicked = function () {
     var that = mainViewModel;
@@ -29,12 +28,13 @@ mainViewModel.loginButtonClicked = function () {
     http.request({ url : url, method: "get" }).then(function(response) {
         var value = response.content.toJSON();
         
-        if('error' in value){
-            try{
-                dialogs.alert(value.error.message);
-                that.set("isLoading", false);
-                return;
-           }catch(e) { dialogs.alert(e); } 
+        if ('error' in value) {
+            //login error
+            dialogs.alert(value.error.message);
+            //hide loading
+            that.set("isLoading", false);
+            //exit
+            return;
         }
         //store the token for later useage.
         var token = value.response.token;
