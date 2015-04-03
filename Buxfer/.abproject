@@ -1,11 +1,11 @@
 {
-  "ProjectName": "test",
+  "ProjectName": "Buxfer",
   "ProjectGuid": "d73ab091-b70e-4020-a30d-3a547289d243",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.test",
-  "DisplayName": "test",
-  "Author": "",
-  "Description": "",
+  "AppIdentifier": "com.telerik.Buxfer",
+  "DisplayName": "Buxfer",
+  "Author": "Mohammad Shehab",
+  "Description": "Buxfer a great money app",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
