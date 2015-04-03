@@ -5,8 +5,8 @@
     <Label text="Use your name & password to get started!" cssClass="message"/>
     <TextField hint="Username" text="{{ username }}" width="250"/>
     <TextField hint="Password" text="{{ password }}" secure="true" width="250"/>
-    <Label text="Remember Me" textWrap="true" margin="10" width="50"/> 
-    <Switch checked="{{ rememberMe }}" />
-    <Button text="Login" tap="{{ loginButtonClicked }}"/>
+    <Label text="Remember Me" cssClass="label" /> 
+    <Switch checked="{{ rememberMe }}" cssClass="element"/>
+    <Button text="Login" cssClass="button" tap="{{ loginButtonClicked }}" />
    </StackLayout>
 </Page>

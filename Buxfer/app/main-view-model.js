@@ -10,8 +10,8 @@ var config = require("./config");
 var mainViewModel = new observable.Observable();
 
 //reset the text fields
-mainViewModel.set("username", "chehabz@hotmail.com");
-mainViewModel.set("password", "chico123");
+mainViewModel.set("username", "");
+mainViewModel.set("password", "");
 mainViewModel.set("isLoading", false);
 mainViewModel.set("rememberMe", false);
 
@@ -28,6 +28,14 @@ mainViewModel.loginButtonClicked = function () {
     var url = config.proxy + "login?userid=" + username + "&password=" + password;
     http.request({ url : url, method: "get" }).then(function(response) {
         var value = response.content.toJSON();
+        
+        if('error' in value){
+            try{
+                dialogs.alert(value.error.message);
+                that.set("isLoading", false);
+                return;
+           }catch(e) { dialogs.alert(e); } 
+        }
         //store the token for later useage.
         var token = value.response.token;
         settings.setString("token", token);
