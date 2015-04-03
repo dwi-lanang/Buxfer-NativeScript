@@ -4,6 +4,8 @@ var dialogs = require("ui/dialogs");
 var activityIndicatorModule = require("ui/activity-indicator");
 var http = require("http");
 var settings = require("local-settings");
+var frameModule = require("ui/frame");
+
 //configuration file
 var config = require("./config");
 //the viewModel
@@ -17,12 +19,23 @@ mainViewModel.set("rememberMe", false);
 
 //define the methods
 mainViewModel.loginButtonClicked = function () {
+    //keep a reference to the viewModel.
     var that = mainViewModel;
+    //check if already clicked
+    if(that.get("isLoading"))
+        return;
+    //get the username and password
+    var username = that.get("username").trim();
+    var password = that.get("password").trim();  
+    //validate the username and password
+    if(username === "" || password === ""){
+        dialogs.alert("Kindly add your username and password");
+        return;
+    }
+   
     //show the progress bar
     that.set("isLoading", true);  
-    //get the username and password
-    var username = that.get("username");
-    var password = that.get("password");  
+    
     //send an http request and try to login
     var url = config.proxy + "login?userid=" + username + "&password=" + password;
     http.request({ url : url, method: "get" }).then(function(response) {
@@ -42,11 +55,12 @@ mainViewModel.loginButtonClicked = function () {
         //hide the progress bar
         that.set("isLoading", false);
         //navigate to the main menu
+        frameModule.topmost().navigate("app/home-page");
     }, function(error) {
         //hide progress bar on error and show error
         that.set("isLoading", false);
         //alert error
-        dialogs.alert(error);	
+        dialogs.alert("No available Internet Please check your connectivity!");	
     });
 };
 

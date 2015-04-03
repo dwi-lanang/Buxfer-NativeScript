@@ -19,5 +19,5 @@
     margin-bottom: 10;
 }
 
-.label{ margin-top:20; margin-left:5;}
-.element{ margin-top:-25;}
+.label{ margin-top:20; margin-left:-50%;horizontal-align: center;}
+.element{ margin-top:-25;horizontal-align: center;margin-right:-50%}

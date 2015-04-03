@@ -1,11 +1,11 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <StackLayout margin="50">
+  <StackLayout margin="20">
     <ActivityIndicator busy="{{ isLoading }}" />
     <Label text="Login To Buxfer" cssClass="title" textWrap="true"/>
     <Label text="Use your name & password to get started!" cssClass="message"/>
     <TextField hint="Username" text="{{ username }}" width="250"/>
     <TextField hint="Password" text="{{ password }}" secure="true" width="250"/>
-    <Label text="Remember Me" cssClass="label" /> 
+    <Label text="Remember Me" cssClass="label"  textWrap="true"/> 
     <Switch checked="{{ rememberMe }}" cssClass="element"/>
     <Button text="Login" cssClass="button" tap="{{ loginButtonClicked }}" />
    </StackLayout>

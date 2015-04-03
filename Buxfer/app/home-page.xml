@@ -1,0 +1,21 @@
+<Page loaded="pageLoaded">
+  <TabView id="tabView1">
+    <TabView.items>
+      <TabEntry title="Dashboard">
+        <TabEntry.view>
+          <Label text="This is Label in Tab 1" />
+        </TabEntry.view>
+      </TabEntry>
+      <TabEntry title="Accounts">
+        <TabEntry.view>
+          <Label text="This is Label in Tab 2" />
+        </TabEntry.view>
+      </TabEntry>
+      <TabEntry title="Transactions">
+        <TabEntry.view>
+          <Label text="This is Label in Tab 2" />
+        </TabEntry.view>
+      </TabEntry>
+    </TabView.items>
+  </TabView>
+</Page>
