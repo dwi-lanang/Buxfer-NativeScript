@@ -1,4 +1,4 @@
-//ntm modules
+//tns modules
 var observable = require("data/observable");
 var dialogs = require("ui/dialogs");
 var activityIndicatorModule = require("ui/activity-indicator");
